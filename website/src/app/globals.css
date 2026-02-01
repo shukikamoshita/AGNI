@@ -1,0 +1,41 @@
+@import "tailwindcss";
+
+:root {
+  --background: #fdfaf5; /* アースベージュ系 */
+  --foreground: #2d3436;
+  --primary: #2d5a27;    /* フォレストグリーン */
+  --primary-foreground: #ffffff;
+  --secondary: #f2e8d5;  /* サブ：アースベージュ */
+  --accent: #b3543d;     /* テラコッタ */
+  --accent-foreground: #ffffff;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  
+  --font-serif: "Noto Serif JP", serif;
+  --font-sans: "Noto Sans JP", sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #1a1a1a;
+    --foreground: #f2e8d5;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif);
+}
