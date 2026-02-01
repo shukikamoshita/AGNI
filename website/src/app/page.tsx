@@ -1,126 +1,142 @@
 import Link from "next/link";
-import { ArrowRight, Leaf, Sprout, Users } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 
 export default function Home() {
   return (
-    <div className="flex flex-col gap-20 pb-20">
-      {/* Hero Section */}
-      <section className="relative h-[80vh] flex items-center justify-center overflow-hidden bg-primary">
-        <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-black/30 z-10" />
-          {/* Placeholder for Hero Image */}
-          <div className="w-full h-full bg-[url('https://images.unsplash.com/photo-1592398618725-b40b8529f79e?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center animate-subtle-zoom" />
+    <div className="flex flex-col gap-0 pb-20">
+      {/* Hero Section - Layered & Text Heavy */}
+      <section className="relative min-h-screen flex flex-col justify-end px-4 md:px-10 pb-20 pt-40 overflow-hidden">
+        <div className="absolute top-0 right-0 w-full md:w-3/4 h-[70vh] md:h-screen z-0">
+          <img
+            src="https://images.unsplash.com/photo-1592398618725-b40b8529f79e?q=80&w=2070&auto=format&fit=crop"
+            alt="Hero"
+            className="w-full h-full object-cover grayscale brightness-75 md:brightness-100 md:grayscale-0 transition-all duration-700 hover:grayscale-0"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-background via-transparent to-background md:hidden" />
         </div>
 
-        <div className="relative z-20 text-center px-4 max-w-4xl">
-          <h1 className="text-4xl md:text-7xl font-serif font-bold text-white mb-6 drop-shadow-lg">
-            土と生きる、明日を創る。
+        <div className="relative z-10 space-y-4">
+          <p className="text-xs font-bold tracking-[0.3em] uppercase opacity-60">Established / Koushu City</p>
+          <h1 className="text-editorial-xl font-serif font-bold leading-[0.85] tracking-tighter">
+            SOIL, <br />
+            YOUTH, <br />
+            <span className="text-accent italic">FUTURE.</span>
           </h1>
-          <p className="text-lg md:text-xl text-white/90 mb-10 leading-relaxed max-w-2xl mx-auto drop-shadow-md">
-            山梨県甲州市。豊かな自然の中で、果実を育て、<br className="hidden md:block" />
-            若者たちと共に農業の未来を切り拓く。
-          </p>
-          <div className="flex flex-col md:flex-row gap-4 justify-center">
-            <Link
-              href="/story"
-              className="px-8 py-4 bg-white text-primary font-bold rounded-full hover:bg-secondary transition-all transform hover:scale-105 inline-flex items-center justify-center gap-2"
-            >
-              私たちの想い <ArrowRight size={20} />
-            </Link>
-            <Link
-              href="/contact"
-              className="px-8 py-4 bg-transparent border-2 border-white text-white font-bold rounded-full hover:bg-white/10 transition-all inline-flex items-center justify-center"
-            >
-              お問い合わせ
-            </Link>
+          <div className="max-w-md mt-10 space-y-6">
+            <p className="text-lg leading-tight font-medium">
+              山梨県甲州市。豊かな自然の中で、果実を育て、<br />
+              若者たちと共に農業の未来を切り拓く現場。
+            </p>
+            <div className="flex gap-10">
+              <Link href="/story" className="group flex items-center gap-1 font-bold text-sm border-b-2 border-foreground pb-1 hover:text-accent hover:border-accent transition-all">
+                VIEW STORY <ArrowUpRight size={16} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+              </Link>
+              <Link href="/contact" className="group flex items-center gap-1 font-bold text-sm border-b-2 border-foreground pb-1 hover:text-accent-secondary hover:border-accent-secondary transition-all">
+                ENQUIRY <ArrowUpRight size={16} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+              </Link>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Intro Section */}
-      <section className="max-w-7xl mx-auto px-4 md:px-8 grid grid-cols-1 md:grid-cols-3 gap-12">
-        <div className="text-center space-y-4 p-8 rounded-2xl bg-secondary/30">
-          <div className="inline-flex p-4 bg-primary text-white rounded-full mb-2">
-            <Leaf size={32} />
-          </div>
-          <h3 className="text-xl font-bold text-primary">自然への敬意</h3>
-          <p className="text-foreground/70 text-sm leading-relaxed">
+      {/* Marquee or Dynamic Bar */}
+      <div className="w-full overflow-hidden bg-foreground text-background py-4 flex whitespace-nowrap border-y border-foreground">
+        <div className="animate-marquee flex gap-20 font-serif italic font-bold text-2xl tracking-tighter uppercase shrink-0 px-10">
+          <span>Peach & Grape 2024 Season</span>
+          <span>Open Field Project</span>
+          <span>Nishikawa Farm x Students</span>
+          <span>New Standard Agriculture</span>
+          <span>Peach & Grape 2024 Season</span>
+          <span>Open Field Project</span>
+          <span>Nishikawa Farm x Students</span>
+          <span>New Standard Agriculture</span>
+        </div>
+      </div>
+
+      {/* Intro Section - Asymmetrical Grid */}
+      <section className="px-4 md:px-10 py-32 grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-0 border-b border-foreground/10">
+        <div className="md:col-span-4 self-start">
+          <span className="text-[10px] font-bold tracking-widest uppercase opacity-40 mb-4 block">01 / Philosophy</span>
+          <h2 className="text-4xl md:text-5xl font-serif font-bold leading-none tracking-tighter mb-10">
+            自然への<br />敬意。
+          </h2>
+        </div>
+        <div className="md:col-span-7 md:col-start-6 space-y-12">
+          <p className="text-2xl md:text-3xl leading-tight font-medium tracking-tight">
             甲州市の恵まれた気候と土壌を活かし、一本一本の木と向き合いながら、高品質な果実を丁寧に育てています。
           </p>
-        </div>
-        <div className="text-center space-y-4 p-8 rounded-2xl bg-secondary/30">
-          <div className="inline-flex p-4 bg-accent text-white rounded-full mb-2">
-            <Users size={32} />
-          </div>
-          <h3 className="text-xl font-bold text-accent">学生との共創</h3>
-          <p className="text-foreground/70 text-sm leading-relaxed">
-            学生が主体となり、生産からプロモーションまで参加。次世代に繋がる「新しい農業」を実践しています。
-          </p>
-        </div>
-        <div className="text-center space-y-4 p-8 rounded-2xl bg-secondary/30">
-          <div className="inline-flex p-4 bg-primary text-white rounded-full mb-2">
-            <Sprout size={32} />
-          </div>
-          <h3 className="text-xl font-bold text-primary">地域の未来</h3>
-          <p className="text-foreground/70 text-sm leading-relaxed">
-            農業を通じて地域の魅力を発信し、関係人口を増やすことで、持続可能な地域社会の構築を目指します。
-          </p>
-        </div>
-      </section>
-
-      {/* Featured Crops / CTA */}
-      <section className="bg-primary text-white py-20">
-        <div className="max-w-7xl mx-auto px-4 md:px-8 flex flex-col md:flex-row items-center gap-12">
-          <div className="md:w-1/2">
-            <h2 className="text-3xl md:text-5xl font-serif font-bold mb-6">季節を彩る、至高の果実。</h2>
-            <p className="text-white/80 mb-8 leading-relaxed">
-              西川農園が誇る「甲州の桃」と「葡萄」。<br />
-              一粒一粒に込められた甘みと香りを、ぜひご堪能ください。
-            </p>
-            <Link
-              href="/crops"
-              className="inline-flex items-center gap-2 text-accent bg-white px-6 py-3 rounded-lg font-bold hover:bg-secondary transition-colors"
-            >
-              栽培作物を見る <ArrowRight size={20} />
-            </Link>
-          </div>
-          <div className="md:w-1/2 grid grid-cols-2 gap-4">
-            <div className="h-64 rounded-xl bg-gray-200 overflow-hidden">
-              <img src="https://images.unsplash.com/photo-1628243342398-e4b787593922?q=80&w=2000&auto=format&fit=crop" alt="Peach" className="w-full h-full object-cover" />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+            <div className="space-y-4">
+              <span className="block h-[1px] w-10 bg-accent" />
+              <p className="text-sm opacity-70">
+                生産からプロモーションまで学生が主体となり参加。次世代に繋がる「新しい農業」を泥臭く、美しく実践しています。
+              </p>
             </div>
-            <div className="h-64 rounded-xl bg-gray-200 overflow-hidden mt-8">
-              <img src="https://images.unsplash.com/photo-1537084642907-629340c7e59c?q=80&w=2074&auto=format&fit=crop" alt="Grapes" className="w-full h-full object-cover" />
+            <div className="space-y-4">
+              <span className="block h-[1px] w-10 bg-accent-secondary" />
+              <p className="text-sm opacity-70">
+                関係人口を増やすことで、持続可能な地域社会の構築を目指します。未来の話ではなく、いまここにある変化を。
+              </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Project Section Wrapper */}
-      <section className="max-w-7xl mx-auto px-4 md:px-8 py-10">
-        <div className="flex justify-between items-end mb-12">
-          <div>
-            <span className="text-accent font-bold tracking-widest text-sm uppercase">Projects</span>
-            <h2 className="text-3xl md:text-4xl font-serif font-bold text-primary mt-2">進行中のプロジェクト</h2>
+      {/* Featured Crops - Large Impact */}
+      <section className="py-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 h-[80vh]">
+          <div className="relative group overflow-hidden border-r border-foreground/10">
+            <img src="https://images.unsplash.com/photo-1628243342398-e4b787593922?q=80&w=2000&auto=format&fit=crop" alt="Peach" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
+            <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors" />
+            <div className="absolute bottom-10 left-10 text-white">
+              <h3 className="text-6xl font-serif font-bold tracking-tighter">Peach</h3>
+              <p className="text-sm font-bold tracking-widest mt-2">6月下旬 - 8月中旬</p>
+            </div>
           </div>
-          <Link href="/project" className="text-primary hover:underline font-bold text-sm flex items-center gap-1">
-            すべて見る <ArrowRight size={16} />
-          </Link>
+          <div className="relative group overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1537084642907-629340c7e59c?q=80&w=2074&auto=format&fit=crop" alt="Grapes" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
+            <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors" />
+            <div className="absolute bottom-10 right-10 text-right text-white">
+              <h3 className="text-6xl font-serif font-bold tracking-tighter">Grape</h3>
+              <p className="text-sm font-bold tracking-widest mt-2">8月下旬 - 10上旬</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Projects - Magazine Style */}
+      <section className="px-4 md:px-10 py-32 space-y-20">
+        <div className="flex flex-col md:flex-row justify-between items-baseline gap-4 md:gap-0 border-b-2 border-foreground pb-4">
+          <h2 className="text-editorial-lg font-serif font-bold leading-none tracking-tighter">ON-GOING<br />PROJECTS</h2>
+          <Link href="/project" className="font-bold text-xs tracking-widest hover:line-through transition-all uppercase">View All Projects</Link>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {[1, 2].map((i) => (
-            <div key={i} className="group relative overflow-hidden rounded-2xl bg-secondary aspect-[16/9]">
-              <img
-                src={`https://images.unsplash.com/photo-1523348837708-15d4a09cfac2?q=80&w=2070&auto=format&fit=crop`}
-                alt="Project"
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent p-8 flex flex-col justify-end">
-                <h3 className="text-xl font-bold text-white mb-2">学生による新商品開発プロジェクト 2024</h3>
-                <p className="text-white/70 text-sm line-clamp-2">農園の桃を活用した加工品の企画・デザイン・販売までを学生がトータルプロデュース。</p>
-              </div>
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-y-20">
+          <div className="md:col-span-8 flex flex-col gap-6">
+            <div className="aspect-[16/9] overflow-hidden grayscale hover:grayscale-0 transition-all duration-700">
+              <img src="https://images.unsplash.com/photo-1523348837708-15d4a09cfac2?q=80&w=2070&auto=format&fit=crop" alt="Project 01" className="w-full h-full object-cover" />
             </div>
-          ))}
+            <div className="space-y-4 max-w-xl">
+              <span className="text-[10px] font-bold tracking-widest uppercase bg-accent text-white px-2 py-1">2024 / Product Development</span>
+              <h3 className="text-3xl font-bold tracking-tight">学生による新商品開発プロジェクト 2024</h3>
+              <p className="text-sm leading-relaxed opacity-70 italic">
+                農園の桃を活用した加工品の企画・デザイン・販売までを学生がトータルプロデュース。現場での気づきを、形にする。
+              </p>
+            </div>
+          </div>
+
+          <div className="md:col-span-4 md:col-start-9 md:pt-40 space-y-6">
+            <div className="aspect-[3/4] overflow-hidden grayscale hover:grayscale-0 transition-all duration-700">
+              <img src="https://images.unsplash.com/photo-1589921291816-7d1a2988e7fb?q=80&w=2070&auto=format&fit=crop" alt="Project 02" className="w-full h-full object-cover" />
+            </div>
+            <div className="space-y-4">
+              <span className="text-[10px] font-bold tracking-widest uppercase bg-foreground text-background px-2 py-1">2023 / Branding</span>
+              <h3 className="text-xl font-bold tracking-tight text-accent-secondary">アグリ・ブランディング 2023</h3>
+              <p className="text-xs leading-relaxed opacity-70">
+                農業の価値を再定義し、視覚化する。ロゴ制作からWeb制作まで、若者の感性が畑に新しい風を吹かせた。
+              </p>
+            </div>
+          </div>
         </div>
       </section>
     </div>

@@ -26,6 +26,7 @@ export const metadata: Metadata = {
 
 import { Navbar } from "@/components/common/Navbar";
 import { Footer } from "@/components/common/Footer";
+import { LoaderProvider } from "@/components/common/LoaderProvider";
 
 export default function RootLayout({
   children,
@@ -35,11 +36,13 @@ export default function RootLayout({
   return (
     <html lang="ja" className={`${notoSansJP.variable} ${notoSerifJP.variable}`}>
       <body className="antialiased min-h-screen flex flex-col">
-        <Navbar />
-        <main className="flex-grow">
-          {children}
-        </main>
-        <Footer />
+        <LoaderProvider>
+          <Navbar />
+          <main className="flex-grow">
+            {children}
+          </main>
+          <Footer />
+        </LoaderProvider>
       </body>
     </html>
   );

@@ -6,70 +6,80 @@ import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const NAV_ITEMS = [
-    { label: "ホーム", href: "/" },
-    { label: "想い・歩み", href: "/story" },
-    { label: "プロジェクト", href: "/project" },
-    { label: "作物紹介", href: "/crops" },
-    { label: "メンバー", href: "/members" },
-    { label: "お問い合わせ", href: "/contact" },
+    { label: "INDEX", href: "/" },
+    { label: "STORY", href: "/story" },
+    { label: "PROJECTS", href: "/project" },
+    { label: "CROPS", href: "/crops" },
+    { label: "MEMBERS", href: "/members" },
+    { label: "CONTACT", href: "/contact" },
 ];
 
 export function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
-        <nav className="sticky top-0 z-50 bg-background/80 backdrop-blur-md border-b border-secondary">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="flex justify-between items-center h-20">
-                    <div className="flex-shrink-0 flex items-center">
-                        <Link href="/" className="text-2xl font-serif font-bold text-primary">
-                            西川農園
-                        </Link>
-                    </div>
+        <nav className="fixed md:sticky top-0 z-50 w-full mix-blend-difference invert md:mix-blend-normal md:invert-0 px-4 md:px-10 py-6">
+            <div className="flex justify-between items-start md:items-baseline">
+                <div className="flex-shrink-0">
+                    <Link href="/" className="text-4xl md:text-5xl font-serif font-bold tracking-tighter leading-none block">
+                        Nishikawa<br className="md:hidden" /> Farm
+                    </Link>
+                    <span className="text-[10px] font-bold tracking-widest mt-1 block opacity-60">KOUSHU / YAMANASHI</span>
+                </div>
 
-                    {/* Desktop Navigation */}
-                    <div className="hidden md:flex space-x-8">
+                {/* Desktop Navigation */}
+                <div className="hidden md:flex flex-col items-end gap-1">
+                    <div className="flex space-x-6">
                         {NAV_ITEMS.map((item) => (
                             <Link
                                 key={item.href}
                                 href={item.href}
-                                className="text-foreground/80 hover:text-primary transition-colors font-medium text-sm"
+                                className="text-foreground font-bold text-xs tracking-widest hover:line-through transition-all"
                             >
                                 {item.label}
                             </Link>
                         ))}
                     </div>
+                    <div className="h-[1px] w-full bg-foreground/20 mt-1" />
+                </div>
 
-                    {/* Mobile menu button */}
-                    <div className="md:hidden flex items-center">
-                        <button
-                            onClick={() => setIsOpen(!isOpen)}
-                            className="text-foreground hover:text-primary focus:outline-none"
-                        >
-                            {isOpen ? <X size={28} /> : <Menu size={28} />}
-                        </button>
-                    </div>
+                {/* Mobile menu button */}
+                <div className="md:hidden flex items-center pt-2">
+                    <button
+                        onClick={() => setIsOpen(!isOpen)}
+                        className="text-foreground hover:text-accent focus:outline-none"
+                    >
+                        {isOpen ? <X size={32} /> : <Menu size={32} />}
+                    </button>
                 </div>
             </div>
 
             {/* Mobile Navigation */}
             <div
                 className={cn(
-                    "md:hidden absolute top-20 w-full bg-background border-b border-secondary transition-all duration-300 ease-in-out overflow-hidden",
-                    isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+                    "md:hidden fixed inset-0 z-40 bg-background transition-all duration-500 ease-in-out px-4 py-20",
+                    isOpen ? "translate-x-0 opacity-100" : "translate-x-full opacity-0"
                 )}
             >
-                <div className="px-4 pt-2 pb-6 space-y-1">
+                <div className="space-y-4">
                     {NAV_ITEMS.map((item) => (
                         <Link
                             key={item.href}
                             href={item.href}
                             onClick={() => setIsOpen(false)}
-                            className="block px-3 py-4 text-base font-medium text-foreground hover:bg-secondary rounded-md"
+                            className="block text-5xl font-serif font-bold tracking-tighter hover:line-through"
                         >
                             {item.label}
                         </Link>
                     ))}
+                </div>
+
+                <div className="absolute bottom-10 left-4 space-y-2">
+                    <p className="text-xs font-bold opacity-40 uppercase tracking-widest">Connect</p>
+                    <div className="flex gap-4 font-bold text-sm">
+                        <a href="#">Instagram</a>
+                        <a href="#">X (Twitter)</a>
+                    </div>
                 </div>
             </div>
         </nav>
