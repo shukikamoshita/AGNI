@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function CropsPage() {
     const crops = [
         {
@@ -5,21 +7,21 @@ export default function CropsPage() {
             jpName: "桃",
             period: "Late June - Mid August",
             description: "甲州市特有の盆地気候が育む、圧倒的な甘みと、とろけるような食感。早生から晩生まで、時期によって異なる品種を楽しめます。",
-            image: "https://images.unsplash.com/photo-1628243342398-e4b787593922?q=80&w=2000&auto=format&fit=crop"
+            image: "/images/nishikawa/trellis-dusk-01.jpg"
         },
         {
             name: "GRAPES",
             jpName: "葡萄",
             period: "Late August - Early October",
             description: "シャインマスカットや巨峰を中心に、糖度と香りにこだわって栽培。一粒に詰まった大地の恵みを、丹精込めてお届けします。",
-            image: "https://images.unsplash.com/photo-1537084642907-629340c7e59c?q=80&w=2074&auto=format&fit=crop"
+            image: "/images/nishikawa/village-trellis-01.jpg"
         },
         {
             name: "PERSIMMON",
             jpName: "柿",
             period: "Late October - Mid November",
             description: "秋の深まりとともに色づく、山梨の伝統。渋抜きを丁寧に行い、上品な甘みと食感を引き出しています。",
-            image: "https://images.unsplash.com/photo-1621356494160-f47ec4616694?q=80&w=2070&auto=format&fit=crop"
+            image: "/images/nishikawa/field-car-01.jpg"
         }
     ];
 
@@ -34,8 +36,8 @@ export default function CropsPage() {
                 {crops.map((crop, idx) => (
                     <div key={idx} className="grid grid-cols-1 md:grid-cols-12 gap-10 items-start">
                         <div className={idx % 2 === 0 ? "md:col-span-7" : "md:col-span-7 md:col-start-6 md:order-2"}>
-                            <div className="aspect-[4/3] overflow-hidden grayscale hover:grayscale-0 transition-all duration-1000">
-                                <img src={crop.image} alt={crop.name} className="w-full h-full object-cover" />
+                            <div className="relative aspect-[4/3] overflow-hidden grayscale hover:grayscale-0 transition-all duration-1000">
+                                <Image src={crop.image} alt={crop.name} fill className="object-cover" />
                             </div>
                         </div>
                         <div className={idx % 2 === 0 ? "md:col-span-4 md:col-start-9 space-y-8" : "md:col-span-4 md:order-1 space-y-8"}>

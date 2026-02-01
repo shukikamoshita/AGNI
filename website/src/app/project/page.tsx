@@ -1,27 +1,28 @@
+import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 
 export default function ProjectPage() {
     const projects = [
         {
             id: "01",
-            title: "新商品開発プロジェクト 2024",
+            title: "学生による新商品開発プロジェクト 2024",
             tag: "Product Design",
             description: "農園で採れた桃をふんだんに使ったジャムとシロップの企画からデザイン、販売までを学生がプロデュース。",
-            image: "https://images.unsplash.com/photo-1589921291816-7d1a2988e7fb?q=80&w=2070&auto=format&fit=crop"
+            image: "/images/nishikawa/students-field-01.jpg"
         },
         {
             id: "02",
             title: "アグリ・ブランディング 2023",
             tag: "Branding",
             description: "西川農園のロゴ制作やWebサイトの基本コンセプト立案。農業の価値を再定義し、視覚化する取り組み。",
-            image: "https://images.unsplash.com/photo-1523348837708-15d4a09cfac2?q=80&w=2070&auto=format&fit=crop"
+            image: "/images/nishikawa/farm-ground-01.jpg"
         },
         {
             id: "03",
-            title: "収穫祭イベント企画",
-            tag: "Event",
-            description: "一般消費者の方々を農園に招き、収穫体験や学生による農園ツアーを実施。地域活性化のモデルケースに。",
-            image: "https://images.unsplash.com/photo-1560493676-04071c5f467b?q=80&w=2074&auto=format&fit=crop"
+            title: "現場体験と地域活性化",
+            tag: "Rural Revitalization",
+            description: "一般消費者の方々を農園に招き、収穫体験や学生による農園ツアーを実施。地域社会との新しい接点。",
+            image: "/images/nishikawa/farm-visit-01.png"
         }
     ];
 
@@ -46,8 +47,8 @@ export default function ProjectPage() {
                                 Read More <ArrowUpRight size={14} />
                             </button>
                         </div>
-                        <div className="md:col-span-6 overflow-hidden grayscale group-hover:grayscale-0 transition-all duration-700">
-                            <img src={p.image} alt={p.title} className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
+                        <div className="md:col-span-6 relative overflow-hidden grayscale group-hover:grayscale-0 transition-all duration-700">
+                            <Image src={p.image} alt={p.title} fill className="object-cover transition-transform duration-1000 group-hover:scale-110" />
                         </div>
                     </div>
                 ))}

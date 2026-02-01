@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 
 export default function Home() {
@@ -7,10 +8,12 @@ export default function Home() {
       {/* Hero Section - Layered & Text Heavy */}
       <section className="relative min-h-screen flex flex-col justify-end px-4 md:px-10 pb-20 pt-40 overflow-hidden">
         <div className="absolute top-0 right-0 w-full md:w-3/4 h-[70vh] md:h-screen z-0">
-          <img
-            src="https://images.unsplash.com/photo-1592398618725-b40b8529f79e?q=80&w=2070&auto=format&fit=crop"
-            alt="Hero"
-            className="w-full h-full object-cover grayscale brightness-75 md:brightness-100 md:grayscale-0 transition-all duration-700 hover:grayscale-0"
+          <Image
+            src="/images/nishikawa/trellis-dusk-01.jpg"
+            alt="山梨県甲州市の農園、夕暮れ時のぶどう棚の風景"
+            fill
+            priority
+            className="object-cover grayscale brightness-75 md:brightness-100 md:grayscale-0 transition-all duration-700 hover:grayscale-0"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-background via-transparent to-background md:hidden" />
         </div>
@@ -86,7 +89,12 @@ export default function Home() {
       <section className="py-20">
         <div className="grid grid-cols-1 md:grid-cols-2 h-[80vh]">
           <div className="relative group overflow-hidden border-r border-foreground/10">
-            <img src="https://images.unsplash.com/photo-1628243342398-e4b787593922?q=80&w=2000&auto=format&fit=crop" alt="Peach" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
+            <Image
+              src="/images/nishikawa/village-trellis-01.jpg"
+              alt="甲州市の集落とぶどう棚の広がる風景"
+              fill
+              className="object-cover transition-transform duration-1000 group-hover:scale-110"
+            />
             <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors" />
             <div className="absolute bottom-10 left-10 text-white">
               <h3 className="text-6xl font-serif font-bold tracking-tighter">Peach</h3>
@@ -94,7 +102,12 @@ export default function Home() {
             </div>
           </div>
           <div className="relative group overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1537084642907-629340c7e59c?q=80&w=2074&auto=format&fit=crop" alt="Grapes" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
+            <Image
+              src="/images/nishikawa/koshu-view-01.jpg"
+              alt="甲州市の遠景と豊かな自然の景色"
+              fill
+              className="object-cover transition-transform duration-1000 group-hover:scale-110"
+            />
             <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors" />
             <div className="absolute bottom-10 right-10 text-right text-white">
               <h3 className="text-6xl font-serif font-bold tracking-tighter">Grape</h3>
@@ -113,8 +126,13 @@ export default function Home() {
 
         <div className="grid grid-cols-1 md:grid-cols-12 gap-y-20">
           <div className="md:col-span-8 flex flex-col gap-6">
-            <div className="aspect-[16/9] overflow-hidden grayscale hover:grayscale-0 transition-all duration-700">
-              <img src="https://images.unsplash.com/photo-1523348837708-15d4a09cfac2?q=80&w=2070&auto=format&fit=crop" alt="Project 01" className="w-full h-full object-cover" />
+            <div className="relative aspect-[16/9] overflow-hidden grayscale hover:grayscale-0 transition-all duration-700">
+              <Image
+                src="/images/nishikawa/students-field-01.jpg"
+                alt="学生が農園を訪れ、現場で作業や見学を行っている様子"
+                fill
+                className="object-cover"
+              />
             </div>
             <div className="space-y-4 max-w-xl">
               <span className="text-[10px] font-bold tracking-widest uppercase bg-accent text-white px-2 py-1">2024 / Product Development</span>
@@ -126,8 +144,13 @@ export default function Home() {
           </div>
 
           <div className="md:col-span-4 md:col-start-9 md:pt-40 space-y-6">
-            <div className="aspect-[3/4] overflow-hidden grayscale hover:grayscale-0 transition-all duration-700">
-              <img src="https://images.unsplash.com/photo-1589921291816-7d1a2988e7fb?q=80&w=2070&auto=format&fit=crop" alt="Project 02" className="w-full h-full object-cover" />
+            <div className="relative aspect-[3/4] overflow-hidden grayscale hover:grayscale-0 transition-all duration-700">
+              <Image
+                src="/images/nishikawa/farm-ground-01.jpg"
+                alt="農園の地面と木々、自然なままの畑の雰囲気"
+                fill
+                className="object-cover"
+              />
             </div>
             <div className="space-y-4">
               <span className="text-[10px] font-bold tracking-widest uppercase bg-foreground text-background px-2 py-1">2023 / Branding</span>
