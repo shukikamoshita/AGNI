@@ -3,22 +3,22 @@ import Image from "next/image";
 export default function MembersPage() {
     const members = [
         {
-            name: "西川 某",
+            name: "西川 悠斗",
             role: "Representative",
-            message: "農業は変化し続けています。伝統を守りながら、若い世代の感性を取り入れ、100年後も愛される農園を目指しています。",
-            image: "/images/nishikawa/farm-ground-01.jpg"
+            message: "西川農園は、私たち学生が中心となって甲州市全体を盛り上げたいと考えています。",
+            image: "/images/members/member-01.png"
         },
         {
-            name: "佐藤 さゆり",
+            name: "鴨下 柊毅",
             role: "Student Leader / Junior",
-            message: "現場で土に触れることで、食の価値を再発見しました。学生だからこそできる発信で、農園の魅力を広めたいです。",
-            image: "/images/nishikawa/students-field-01.jpg"
+            message: "農業から地域全体を盛り上げていきたいと考えています。",
+            image: "/images/members/member-02.jpg"
         },
         {
-            name: "高橋 健太",
+            name: "山本 空",
             role: "Digital Production / Sophomore",
-            message: "デザインやWebの力で、農業をかっこよくアップデートしたい。泥臭さと美しさが共存する西川農園が大好きです。",
-            image: "/images/nishikawa/farm-visit-01.png"
+            message: "甲州市には、まだまだ大きな可能性があると思っています。",
+            image: "/images/members/yamamoto.jpg"
         }
     ];
 
